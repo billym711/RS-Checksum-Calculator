@@ -6,6 +6,7 @@ with open('OTIDs.csv', newline='') as otids:
     otids_list = list(reader)
 
 #Shroomish Decrypted Data
+
 data1 = 306
 data2 = 967
 data3 = 17920
@@ -20,17 +21,36 @@ data11 = 0
 data12 = 0
 pid = 1321080
 
+'''
+# Wurmple Decrypted Data
+data1 = 306
+data2 = 967
+data3 = 17920
+data4 = 2162759
+data5 = 4784206
+data6 = 169747220
+data7 = 0
+data8 = 0
+data9 = 0
+data10 = 2693537792
+data11 = 0
+data12 = 0
+'''
+pid = 1321080
 valid_combinations = []
 #print(otids_list[0])
+'''
 original_checksum = ((data1 % 65536) + math.trunc(data1/65536) + (data2 % 65536) + math.trunc(data2/65536) + (data3 % 65536)
         + math.trunc(data3/65536) + (data4 % 65536) + math.trunc(data4/65536) + (data5 % 65536) + math.trunc(data5/65536)
         + (data6 % 65536) + math.trunc(data6/65536) + (data7 % 65536) + math.trunc(data7/65536) + (data8 % 65536)
         + math.trunc(data8/65536) + (data9 % 65536) + math.trunc(data9/65536) + (data10 % 65536) + math.trunc(data10/65536)
         + (data11 % 65536) + math.trunc(data11/65536) + (data12 % 65536) + math.trunc(data12/65536))%65536
-for i in range(3000, 100000):
+        '''
+original_checksum = 8571
+for i in range(3000, 10000):
     player_key = pid ^ (literal_eval(f"{int(otids_list[i][2]):#0{6}x}" + f"{int(otids_list[i][1]):#0{6}x}"[2::]))
     #print("Player frame " + str(i-1) + " Player Key: " + str(player_key))
-    for j in range(700, 100000):
+    for j in range(700, 10000):
 
         enemy_key = pid ^ (literal_eval(f"{int(otids_list[j][1]):#0{6}x}" + f"{int(otids_list[j][2]):#0{6}x}"[2::]))
 

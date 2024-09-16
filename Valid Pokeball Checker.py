@@ -43,7 +43,7 @@ valid_combinations = []
 
  
 print(data10)
-for i in range(3000, 50000):
+for i in range(3000, 3002):
     player_key = pid ^ (literal_eval(f"{int(otids_list[i][2]):#0{6}x}" + f"{int(otids_list[i][1]):#0{6}x}"[2::]))
     #print("Player frame " + str(i-1) + " Player Key: " + str(player_key))
     for j in range(700, 20000):
@@ -77,6 +77,7 @@ for i in range(3000, 50000):
                 print("Match Found! Player frame: " + str(i-1) + " Enemy Frame: " + str(j-1) + " Player TID/SID: " + otids_list[i][1] + " " + otids_list[i][2] + 
                     " Enemy TID/SID: " + otids_list[j][2] + " " + otids_list[j][1] + " Moves: " + "0x" + f"{(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2)):#0{10}x}"[-4:] + " " + f"{(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2)):#0{10}x}"[0:6]
                     + " 0x" + f"{(int(format((player_key ^ enemy_key ^ data2), '#034b')[2:], 2)):#0{10}x}"[-4:] + " " + f"{(int(format((player_key ^ enemy_key ^ data2), '#034b')[2:], 2)):#0{10}x}"[0:6] + " Pokeball: " + str(k))
+                break
             #if ((literal_eval(hex(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2))[0:2] + hex(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2))[-4:] )) < 440):
                 #print("VALID MON")
 print("Done")

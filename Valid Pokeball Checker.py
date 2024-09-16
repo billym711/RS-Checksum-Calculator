@@ -4,6 +4,8 @@ from ast import literal_eval
 with open('OTIDs.csv', newline='') as otids:
     reader = csv.reader(otids)
     otids_list = list(reader)
+file = open('ACE combos.txt', 'a')
+file.write('test')
 
 #Shroomish Decrypted Data
 '''
@@ -43,10 +45,10 @@ valid_combinations = []
 
  
 print(data10)
-for i in range(3000, 3002):
+for i in range(80000, 100000):
     player_key = pid ^ (literal_eval(f"{int(otids_list[i][2]):#0{6}x}" + f"{int(otids_list[i][1]):#0{6}x}"[2::]))
     #print("Player frame " + str(i-1) + " Player Key: " + str(player_key))
-    for j in range(700, 20000):
+    for j in range(700, 50000):
 
         enemy_key = pid ^ (literal_eval(f"{int(otids_list[j][1]):#0{6}x}" + f"{int(otids_list[j][2]):#0{6}x}"[2::]))
 
@@ -69,8 +71,9 @@ for i in range(3000, 3002):
             #print("Enemy frame " + str(j) + " Enemy Key: " + str(enemy_key) + " New Checksum: " + str(new_checksum))
             if new_checksum == original_checksum:
                 #valid_combinations.append([i-1, j-1])
-                #if ("0x" + f"{(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2)):#0{10}x}"[-4:] == '0x6d83' or f"{(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2)):#0{10}x}"[0:6] == '0x6d83' or "0x" + f"{(int(format((player_key ^ enemy_key ^ data2), '#034b')[2:], 2)):#0{10}x}"[-4:] == '0x6d83' or f"{(int(format((player_key ^ enemy_key ^ data2), '#034b')[2:], 2)):#0{10}x}"[0:6] == '0x6d83'):
-                    #print("ACE move found: " + str(i-1) + " " + str(j-1))
+                if ("0x" + f"{(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2)):#0{10}x}"[-4:] == '0x6d83' or f"{(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2)):#0{10}x}"[0:6] == '0x6d83' or "0x" + f"{(int(format((player_key ^ enemy_key ^ data2), '#034b')[2:], 2)):#0{10}x}"[-4:] == '0x6d83' or f"{(int(format((player_key ^ enemy_key ^ data2), '#034b')[2:], 2)):#0{10}x}"[0:6] == '0x6d83'):
+                    print("ACE move found: " + str(i-1) + " " + str(j-1))
+                    file.write("ACE move found: " + str(i-1) + " " + str(j-1))
                 #if (f"{(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2)):#0{10}x}"[0:6] == '0x0113'):
                 #    print("Eon Ticket found: " + str(i-1) + " " + str(j-1))
                 
@@ -81,3 +84,4 @@ for i in range(3000, 3002):
             #if ((literal_eval(hex(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2))[0:2] + hex(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2))[-4:] )) < 440):
                 #print("VALID MON")
 print("Done")
+file.close()

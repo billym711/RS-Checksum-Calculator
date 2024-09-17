@@ -6,6 +6,7 @@ with open('OTIDs.csv', newline='') as otids:
     otids_list = list(reader)
 file = open('ACE combos.txt', 'a')
 
+#TODO: just copy and paste the whole string of hex data (maybe can do int?) and substring it to get the data instead of doing individual copy pastes
 enemy_list = ["Rick Wurmple 1", "Rick Wurmple 2", "Allen Poochyena", "Allen Taillow", "Tiana Zigzagoon 1", "Tiana Zigzagoon 2", 
               "Billy Seedot", "Billy Taillow", "Winston Zigzagoon", "Lyle Wurmple 1-6", "James Nincada", "Cindy Zigzagoon"]
 enemy_dict = {

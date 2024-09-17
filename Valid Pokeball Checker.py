@@ -5,10 +5,6 @@ with open('OTIDs.csv', newline='') as otids:
     reader = csv.reader(otids)
     otids_list = list(reader)
 file = open('ACE combos.txt', 'a')
-file.write('test')
-
-
-
 
 enemy_list = ["Rick Wurmple 1", "Rick Wurmple 2", "Allen Poochyena", "Allen Taillow", "Tiana Zigzagoon 1", "Tiana Zigzagoon 2", "Billy Seedot", "Billy Taillow", "Winston Zigzagoon"]
 enemy_dict = {
@@ -112,18 +108,18 @@ enemy_dict = {
                                     1210673683 ^ 1210673683],
             "Billy Taillow": 
               [1166984,
-               2827846186 ^ 2829091434,
-                2831319582 ^ 2829091434,
-                  3065948745 ^ 2829091434,
-                    2829091434 ^ 2829091434,
-                      2829091434 ^ 2829091434,
-                        2829091434 ^ 2829091434,
-                          2829091674 ^ 2829091434,
-                            2829091664 ^ 2829091434,
-                              2829108330 ^ 2829091434,
-                                2284360042 ^ 2829091434,
-                                  2829091434 ^ 2829091434,
-                                    2829091434 ^ 2829091434], 
+               93776316 ^ 96201212,
+                98167176 ^ 96201212,
+                  463847903 ^ 96201212,
+                    96201212 ^ 96201212,
+                      96201212 ^ 96201212,
+                        96201212 ^ 96201212,
+                          96200908 ^ 96201212,
+                            96200902 ^ 96201212,
+                              96186364 ^ 96201212,
+                                2771647228 ^ 96201212,
+                                  96201212 ^ 96201212,
+                                    96201212 ^ 96201212], 
             "Winston Zigzagoon": 
               [821896,
                1442059782 ^ 1442059782,
@@ -148,7 +144,7 @@ data_order = {0: 'GAEM',	6: 'AGEM', 	12: 'EGAM', 18: 'MGAE',
 4: 'GMAE', 	10: 'AMGE', 16: 'EMGA', 	22: 'MEGA',
 5: 'GMEA', 	11: 'AMEG',	17: 'EMAG', 	23: 'MEAG' }
 
-
+print(data_order)
 
 
 #Shroomish Decrypted Data
@@ -189,10 +185,10 @@ valid_combinations = []
 
  
 print(data10)
-for i in range(6750, 6850):
+for i in range(15000, 15200):
     player_key = pid ^ (literal_eval(f"{int(otids_list[i][2]):#0{6}x}" + f"{int(otids_list[i][1]):#0{6}x}"[2::]))
     #print("Player frame " + str(i-1) + " Player Key: " + str(player_key))
-    for j in range(33000, 33800):
+    for j in range(45000, 46000):
 
         enemy_key = pid ^ (literal_eval(f"{int(otids_list[j][1]):#0{6}x}" + f"{int(otids_list[j][2]):#0{6}x}"[2::]))
         for enemy_mon in enemy_list:
@@ -211,7 +207,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][10]
                 data11 = enemy_dict[enemy_mon][11]
                 data12 = enemy_dict[enemy_mon][12]
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'GAME':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'GAME':
                 data1 = enemy_dict[enemy_mon][1]
                 data2 = enemy_dict[enemy_mon][2]
                 data3 = enemy_dict[enemy_mon][3]
@@ -224,7 +220,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][7]
                 data11 = enemy_dict[enemy_mon][8]
                 data12 = enemy_dict[enemy_mon][9]   
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'GEAM':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'GEAM':
                 data1 = enemy_dict[enemy_mon][1]
                 data2 = enemy_dict[enemy_mon][2]
                 data3 = enemy_dict[enemy_mon][3]
@@ -237,7 +233,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][10]
                 data11 = enemy_dict[enemy_mon][11]
                 data12 = enemy_dict[enemy_mon][12]     
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'GEMA':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'GEMA':
                 data1 = enemy_dict[enemy_mon][1]
                 data2 = enemy_dict[enemy_mon][2]
                 data3 = enemy_dict[enemy_mon][3]
@@ -250,7 +246,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][7]
                 data11 = enemy_dict[enemy_mon][8]
                 data12 = enemy_dict[enemy_mon][9]    
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'GMAE':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'GMAE':
                 data1 = enemy_dict[enemy_mon][1]
                 data2 = enemy_dict[enemy_mon][2]
                 data3 = enemy_dict[enemy_mon][3]
@@ -263,7 +259,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][4]
                 data11 = enemy_dict[enemy_mon][5]
                 data12 = enemy_dict[enemy_mon][6]    
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'GMEA':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'GMEA':
                 data1 = enemy_dict[enemy_mon][1]
                 data2 = enemy_dict[enemy_mon][2]
                 data3 = enemy_dict[enemy_mon][3]
@@ -276,7 +272,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][4]
                 data11 = enemy_dict[enemy_mon][5]
                 data12 = enemy_dict[enemy_mon][6]    
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'AGEM':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'AGEM':
                 data1 = enemy_dict[enemy_mon][4]
                 data2 = enemy_dict[enemy_mon][5]
                 data3 = enemy_dict[enemy_mon][6]
@@ -289,7 +285,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][10]
                 data11 = enemy_dict[enemy_mon][11]
                 data12 = enemy_dict[enemy_mon][12]  
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'AGME':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'AGME':
                 data1 = enemy_dict[enemy_mon][4]
                 data2 = enemy_dict[enemy_mon][5]
                 data3 = enemy_dict[enemy_mon][6]
@@ -302,7 +298,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][7]
                 data11 = enemy_dict[enemy_mon][8]
                 data12 = enemy_dict[enemy_mon][9]  
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'AEGM':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'AEGM':
                 data1 = enemy_dict[enemy_mon][7]
                 data2 = enemy_dict[enemy_mon][8]
                 data3 = enemy_dict[enemy_mon][9]
@@ -315,7 +311,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][10]
                 data11 = enemy_dict[enemy_mon][11]
                 data12 = enemy_dict[enemy_mon][12]  
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'AEMG':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'AEMG':
                 data1 = enemy_dict[enemy_mon][10]
                 data2 = enemy_dict[enemy_mon][11]
                 data3 = enemy_dict[enemy_mon][12]
@@ -328,7 +324,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][7]
                 data11 = enemy_dict[enemy_mon][8]
                 data12 = enemy_dict[enemy_mon][9]  
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'AMGE':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'AMGE':
                 data1 = enemy_dict[enemy_mon][7]
                 data2 = enemy_dict[enemy_mon][8]
                 data3 = enemy_dict[enemy_mon][9]
@@ -341,7 +337,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][4]
                 data11 = enemy_dict[enemy_mon][5]
                 data12 = enemy_dict[enemy_mon][6]
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'AMEG':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'AMEG':
                 data1 = enemy_dict[enemy_mon][10]
                 data2 = enemy_dict[enemy_mon][11]
                 data3 = enemy_dict[enemy_mon][12]
@@ -354,7 +350,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][4]
                 data11 = enemy_dict[enemy_mon][5]
                 data12 = enemy_dict[enemy_mon][6]   
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'EGAM':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'EGAM':
                 data1 = enemy_dict[enemy_mon][4]
                 data2 = enemy_dict[enemy_mon][5]
                 data3 = enemy_dict[enemy_mon][6]
@@ -367,7 +363,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][10]
                 data11 = enemy_dict[enemy_mon][11]
                 data12 = enemy_dict[enemy_mon][12]   
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'EGMA':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'EGMA':
                 data1 = enemy_dict[enemy_mon][4]
                 data2 = enemy_dict[enemy_mon][5]
                 data3 = enemy_dict[enemy_mon][6]
@@ -380,7 +376,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][7]
                 data11 = enemy_dict[enemy_mon][8]
                 data12 = enemy_dict[enemy_mon][9]  
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'EAGM':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'EAGM':
                 data1 = enemy_dict[enemy_mon][7]
                 data2 = enemy_dict[enemy_mon][8]
                 data3 = enemy_dict[enemy_mon][9]
@@ -393,7 +389,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][10]
                 data11 = enemy_dict[enemy_mon][11]
                 data12 = enemy_dict[enemy_mon][12]       
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'EAMG':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'EAMG':
                 data1 = enemy_dict[enemy_mon][10]
                 data2 = enemy_dict[enemy_mon][11]
                 data3 = enemy_dict[enemy_mon][12]
@@ -406,7 +402,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][7]
                 data11 = enemy_dict[enemy_mon][8]
                 data12 = enemy_dict[enemy_mon][9]   
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'EMGA':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'EMGA':
                 data1 = enemy_dict[enemy_mon][7]
                 data2 = enemy_dict[enemy_mon][8]
                 data3 = enemy_dict[enemy_mon][9]
@@ -419,7 +415,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][4]
                 data11 = enemy_dict[enemy_mon][5]
                 data12 = enemy_dict[enemy_mon][6]   
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'EMAG':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'EMAG':
                 data1 = enemy_dict[enemy_mon][10]
                 data2 = enemy_dict[enemy_mon][11]
                 data3 = enemy_dict[enemy_mon][12]
@@ -432,7 +428,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][4]
                 data11 = enemy_dict[enemy_mon][5]
                 data12 = enemy_dict[enemy_mon][6]  
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'MGAE':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'MGAE':
                 data1 = enemy_dict[enemy_mon][4]
                 data2 = enemy_dict[enemy_mon][5]
                 data3 = enemy_dict[enemy_mon][6]
@@ -445,7 +441,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][1]
                 data11 = enemy_dict[enemy_mon][2]
                 data12 = enemy_dict[enemy_mon][3]  
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'MGEA':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'MGEA':
                 data1 = enemy_dict[enemy_mon][4]
                 data2 = enemy_dict[enemy_mon][5]
                 data3 = enemy_dict[enemy_mon][6]
@@ -458,7 +454,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][1]
                 data11 = enemy_dict[enemy_mon][2]
                 data12 = enemy_dict[enemy_mon][3] 
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'MAGE':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'MAGE':
                 data1 = enemy_dict[enemy_mon][7]
                 data2 = enemy_dict[enemy_mon][8]
                 data3 = enemy_dict[enemy_mon][9]
@@ -471,7 +467,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][1]
                 data11 = enemy_dict[enemy_mon][2]
                 data12 = enemy_dict[enemy_mon][3]    
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'MAEG':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'MAEG':
                 data1 = enemy_dict[enemy_mon][10]
                 data2 = enemy_dict[enemy_mon][11]
                 data3 = enemy_dict[enemy_mon][12]
@@ -484,7 +480,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][1]
                 data11 = enemy_dict[enemy_mon][2]
                 data12 = enemy_dict[enemy_mon][3] 
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'MEGA':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'MEGA':
                 data1 = enemy_dict[enemy_mon][7]
                 data2 = enemy_dict[enemy_mon][8]
                 data3 = enemy_dict[enemy_mon][9]
@@ -497,7 +493,7 @@ for i in range(6750, 6850):
                 data10 = enemy_dict[enemy_mon][1]
                 data11 = enemy_dict[enemy_mon][2]
                 data12 = enemy_dict[enemy_mon][3]    
-            elif ((enemy_dict[enemy_mon][0]) % 24) == 'MEAG':
+            if (data_order[(enemy_dict[enemy_mon][0]) % 24]) == 'MEAG':
                 data1 = enemy_dict[enemy_mon][10]
                 data2 = enemy_dict[enemy_mon][11]
                 data3 = enemy_dict[enemy_mon][12]
@@ -509,7 +505,7 @@ for i in range(6750, 6850):
                 data9 = enemy_dict[enemy_mon][6]
                 data10 = enemy_dict[enemy_mon][1]
                 data11 = enemy_dict[enemy_mon][2]
-                data12 = enemy_dict[enemy_mon][3]                                                                                        
+                data12 = enemy_dict[enemy_mon][3]                                                                                       
             for k in range(1, 13):
                 #checking each pokeball
                 data10 = int(format(data10, '#034b')[2:3] + format(k, '#06b')[2:] + format(data10, '#034b')[7:], 2)
@@ -542,7 +538,7 @@ for i in range(6750, 6850):
                     + " Held Item: " + f"{(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2)):#0{10}x}"[0:6] 
                     + " Moves: " + "0x" + f"{(int(format((player_key ^ enemy_key ^ data4), '#034b')[2:], 2)):#0{10}x}"[-4:] + " " + f"{(int(format((player_key ^ enemy_key ^ data4), '#034b')[2:], 2)):#0{10}x}"[0:6]
                         + " 0x" + f"{(int(format((player_key ^ enemy_key ^ data5), '#034b')[2:], 2)):#0{10}x}"[-4:] + " " + f"{(int(format((player_key ^ enemy_key ^ data5), '#034b')[2:], 2)):#0{10}x}"[0:6] + " Pokeball: " + str(k)
-                        + (" Egg: " + format(player_key ^ enemy_key ^ data11, '#034b')[3:4]))
+                        + (" Egg: " + format(player_key ^ enemy_key ^ data11, '#034b')[3:4]) + " Enemy Mon: " + enemy_mon) 
                     break
                 #if ((literal_eval(hex(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2))[0:2] + hex(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2))[-4:] )) < 440):
                     #print("VALID MON")

@@ -135,3 +135,20 @@ data_order = {0: 'GAEM',	6: 'AGEM', 	12: 'EGAM', 18: 'MGAE',
 3: 'GEMA', 	9: 'AEMG',	15: 'EAMG', 	21: 'MAEG',
 4: 'GMAE', 	10: 'AMGE', 16: 'EMGA', 	22: 'MEGA',
 5: 'GMEA', 	11: 'AMEG',	17: 'EMAG', 	23: 'MEAG' }
+
+enemy_dict_2 = {}
+
+#testing an automated fill of dict
+for i in enemy_list:
+    enemy_dict_2[i] = []
+    #add PID here
+    enemy_dict_2[i].append("PID")
+    for j in range(12):
+      enemy_dict_2[i].append("123")
+print(enemy_dict_2)
+print(0xFE03586C ^ 0xDC02586C)
+print(list(zip(*[iter('FE03586C')]*2)))
+print((bytearray.fromhex("FE03586C")))
+print(bytes(reversed(bytearray.fromhex("FE03586C"))).hex())
+print(bytes(reversed(bytearray.fromhex("DC02586C"))).hex())
+print(int(bytes(reversed(bytearray.fromhex("DC02586C"))).hex(), 16) ^ int(bytes(reversed(bytearray.fromhex("FE03586C"))).hex(),16))

@@ -8,7 +8,8 @@ file = open('ACE combos.txt', 'a')
 
 #TODO: just copy and paste the whole string of hex data (maybe can do int?) and substring it to get the data instead of doing individual copy pastes
 enemy_list = ["Rick Wurmple 1-2", "Allen Poochyena", "Allen Taillow", "Tiana Zigzagoon 1-2", 
-              "Billy Seedot", "Billy Taillow", "Winston Zigzagoon", "Lyle Wurmple 1-6", "James Nincada", "Cindy Zigzagoon"]
+              "Billy Seedot", "Billy Taillow", "Winston Zigzagoon", "Lyle Wurmple 1-6", "James Nincada", "Cindy Zigzagoon", "Rick Wurmple 1-2 Test"]
+
 enemy_dict = {
             "Rick Wurmple 1-2": 
               [562056,
@@ -153,7 +154,16 @@ enemy_dict = {
                                   int('D94D41E4', 16) ^ int('22250000', 16),
                                     int('DD655FE4', 16) ^ int('22250000', 16)]                                                             
             }
-
+print(enemy_dict)
+#int(bytes(reversed(bytearray.fromhex("DC02586C"))).hex(), 16) ^ int(bytes(reversed(bytearray.fromhex("FE03586C"))).hex(),16)
+#must convert everything to little endian including PID
+test_data = "889308005491506CD1CFCCC7CAC6BFFF00000202BBFFFFFFFFFFFF007BA10000FE03586C9C02586CDC44586CFD02096CDC02586CFF2A586CDC02586CDC02586CDC02586CDC13DC4CDC02586CDC02586C"
+for i in enemy_list:
+    enemy_dict[i] = []
+    #add PID here
+    enemy_dict[i].append(int(bytes(reversed(bytearray.fromhex(test_data[0:8]))).hex(), 16))
+    for j in range(12):
+      enemy_dict[i].append(int(bytes(reversed(bytearray.fromhex(test_data[(j+8)*8:(j+9)*8]))).hex(), 16) ^ int(bytes(reversed(bytearray.fromhex("DC02586C"))).hex(),16))
 
 data_order = {0: 'GAEM',	6: 'AGEM', 	12: 'EGAM', 18: 'MGAE',
 1: 'GAME', 	7: 'AGME', 	13: 'EGMA',  	19: 'MGEA',
@@ -201,7 +211,6 @@ valid_combinations = []
 #print(otids_list[0])
 
  
-print(data10)
 for i in range(4000, 5000):
     player_key = pid ^ (literal_eval(f"{int(otids_list[i][2]):#0{6}x}" + f"{int(otids_list[i][1]):#0{6}x}"[2::]))
     #print("Player frame " + str(i-1) + " Player Key: " + str(player_key))

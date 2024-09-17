@@ -6,7 +6,8 @@ with open('OTIDs.csv', newline='') as otids:
     otids_list = list(reader)
 file = open('ACE combos.txt', 'a')
 
-enemy_list = ["Rick Wurmple 1", "Rick Wurmple 2", "Allen Poochyena", "Allen Taillow", "Tiana Zigzagoon 1", "Tiana Zigzagoon 2", "Billy Seedot", "Billy Taillow", "Winston Zigzagoon"]
+enemy_list = ["Rick Wurmple 1", "Rick Wurmple 2", "Allen Poochyena", "Allen Taillow", "Tiana Zigzagoon 1", "Tiana Zigzagoon 2", 
+              "Billy Seedot", "Billy Taillow", "Winston Zigzagoon", "Lyle Wurmple 1-6", "James Nincada", "Cindy Zigzagoon"]
 enemy_dict = {
             "Rick Wurmple 1": 
               [562056,
@@ -133,7 +134,49 @@ enemy_dict = {
                               1442074630 ^ 1442059782,
                                 1440290343 ^ 1442059782,
                                   1442059809 ^ 1442059782,
-                                    1441414693 ^ 1442059782]                                                      
+                                    1441414693 ^ 1442059782],
+              "Lyle Wurmple 1-6":
+              [int('88A00800', 16),
+               int('30557DF6', 16) ^ 810909174,
+                int('30557DF6', 16) ^ 810909174,
+                  int('30557DF6', 16) ^ 810909174,
+                    int('306EFE56', 16) ^ 810909174,
+                      int('30557DF6', 16) ^ 810909174,
+                        int('30557DF6', 16) ^ 810909174,
+                          int('12547DF6', 16) ^ 810909174,
+                            int('2B557DF6', 16) ^ 810909174,
+                              int('30137DF6', 16) ^ 810909174,
+                                int('11552CF6', 16) ^ 810909174,
+                                  int('30557DF6', 16) ^ 810909174,
+                                    int('137D7DF6', 16) ^ 810909174]  ,
+              "James Nincada":
+              [int('88160900', 16),
+               int('68282FFA', 16) ^ 1646806522,
+                int('EF2845FA', 16) ^ 1646806522,
+                  int('41364AFA', 16) ^ 1646806522,
+                    int('622845FA', 16) ^ 1646806522,
+                      int('622845FA', 16) ^ 1646806522,
+                        int('622845FA', 16) ^ 1646806522,
+                          int('4F2945FA', 16) ^ 1646806522,
+                            int('CC2B45FA', 16) ^ 1646806522,
+                              int('626E45FA', 16) ^ 1646806522,
+                                int('6213CD5A', 16) ^ 1646806522,
+                                  int('622845FA', 16) ^ 1646806522,
+                                    int('622845FA', 16) ^ 1646806522]     ,
+              "Cindy Zigzagoon":
+              [int('78DB0A00', 16),
+               int('FE4D41E4', 16) ^ int('22250000', 16),
+                int('FE4D41E4', 16) ^ int('22250000', 16),
+                  int('FE4D41E4', 16) ^ int('22250000', 16),
+                    int('FE5EC644', 16) ^ int('22250000', 16),
+                      int('FE4D41E4', 16) ^ int('22250000', 16),
+                        int('FE4D41E4', 16) ^ int('22250000', 16),
+                          int('DE4C2FE4', 16) ^ int('22250000', 16),
+                            int('A94C41E4', 16) ^ int('22250000', 16),
+                              int('FE0B41E4', 16) ^ int('22250000', 16),
+                                int('DF4D6CE4', 16) ^ int('22250000', 16),
+                                  int('D94D41E4', 16) ^ int('22250000', 16),
+                                    int('DD655FE4', 16) ^ int('22250000', 16)]                                                             
             }
 
 
@@ -185,10 +228,10 @@ valid_combinations = []
 
  
 print(data10)
-for i in range(15000, 15200):
+for i in range(3000, 5000):
     player_key = pid ^ (literal_eval(f"{int(otids_list[i][2]):#0{6}x}" + f"{int(otids_list[i][1]):#0{6}x}"[2::]))
     #print("Player frame " + str(i-1) + " Player Key: " + str(player_key))
-    for j in range(45000, 46000):
+    for j in range(700, 2700):
 
         enemy_key = pid ^ (literal_eval(f"{int(otids_list[j][1]):#0{6}x}" + f"{int(otids_list[j][2]):#0{6}x}"[2::]))
         for enemy_mon in enemy_list:

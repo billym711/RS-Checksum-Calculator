@@ -6,9 +6,6 @@ with open('OTIDs.csv', newline='') as otids:
     otids_list = list(reader)
 file = open('ACE combos.txt', 'a')
 #TODO: multithread this shit somehow
-#TODO: just copy and paste the whole string of hex data (maybe can do int?) and substring it to get the data instead of doing individual copy pastes
-#Do we need to check the PIDs for otherwise equal mons? different nature = different PID but i haven't noticed any differences yet
-#No because the original PID is preserved on the glitch mon. This means that the structure doesn't matter as long as all the decrypted data is identical
 #Enemy 1 starts at 45C0, Enemy 2 starts at 4624, Enemy 3 starts at 4688
 #TODO: Add Wally rematches, combine matching entries, add all rematches
 # Any trainer listed here (besides gym leaders and e4 members) can be rematched up to 5 times with different mons each time: https://www.serebii.net/rubysapphire/trainer/
@@ -528,44 +525,27 @@ data_order = {0: 'GAEM',	6: 'AGEM', 	12: 'EGAM', 18: 'MGAE',
 4: 'GMAE', 	10: 'AMGE', 16: 'EMGA', 	22: 'MEGA',
 5: 'GMEA', 	11: 'AMEG',	17: 'EMAG', 	23: 'MEAG' }
 
-#Shroomish Decrypted Data
-'''
-data1 = 306
-data2 = 967
-data3 = 17920
-data4 = 2162759
-data5 = 4784206
-data6 = 169747220
+# Wurmple Decrypted Data
+data1 = 0
+data2 = 0
+data3 = 0
+data4 = 0
+data5 = 0
+data6 = 0
 data7 = 0
 data8 = 0
 data9 = 0
-data10 = 2693537792
+data10 = 0
 data11 = 0
 data12 = 0
-pid = 1321080
-'''
-
-example_key = 2157728869
-# Wurmple Decrypted Data
-data1 = 2160940100 ^ example_key
-data2 = 2157728869 ^ example_key
-data3 = 2157739078 ^ example_key
-data4 = 2157728869 ^ example_key
-data5 = 2157728869 ^ example_key
-data6 = 2157728869 ^ example_key
-data7 = 2157729095 ^ example_key
-data8 = 2157728805 ^ example_key
-data9 = 2157711973 ^ example_key
-data10 = 538461541 ^ example_key
-data11 = 2157728869 ^ example_key
-data12 = 2157728869 ^ example_key
 #Note: PID actually doesn’t matter, as it gets used for the original and new decryption keys, cancelling each other out
 pid = 1321080
 valid_combinations = []
 #print(otids_list[0])
-
+for i in enemy_data_list:
+    print(i[0] + ": " + str(enemy_dict[i[0]][0]))
  
-for i in range(5000, 10000):
+for i in range(13210, 13211):
     player_key = pid ^ (literal_eval(f"{int(otids_list[i][2]):#0{6}x}" + f"{int(otids_list[i][1]):#0{6}x}"[2::]))
     #print("Player frame " + str(i-1) + " Player Key: " + str(player_key))
     for j in range(600, 10000):

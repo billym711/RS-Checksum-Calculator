@@ -5,7 +5,7 @@ with open('OTIDs.csv', newline='') as otids:
     reader = csv.reader(otids)
     otids_list = list(reader)
 file = open('ACE combos.txt', 'a')
-
+#TODO: multithread this shit somehow
 #TODO: just copy and paste the whole string of hex data (maybe can do int?) and substring it to get the data instead of doing individual copy pastes
 #Do we need to check the PIDs for otherwise equal mons? different nature = different PID but i haven't noticed any differences yet
 #No because the original PID is preserved on the glitch mon. This means that the structure doesn't matter as long as all the decrypted data is identical

@@ -5,7 +5,7 @@ with open('OTIDs.csv', newline='') as otids:
     reader = csv.reader(otids)
     otids_list = list(reader)
 file = open('ACE combos.txt', 'a')
-#TODO: multithread this shit somehow
+#TODO: multithread this shit somehow or automate it to check multiple seeds at once
 #TODO: just copy and paste the whole string of hex data (maybe can do int?) and substring it to get the data instead of doing individual copy pastes
 #Do we need to check the PIDs for otherwise equal mons? different nature = different PID but i haven't noticed any differences yet
 #No because the original PID is preserved on the glitch mon. This means that the structure doesn't matter as long as all the decrypted data is identical
@@ -217,7 +217,7 @@ enemy_data_list = [["Rick Wurmple 1-2", "889308005491506CD1CFCCC7CAC6BFFF0000020
                 [ "Jessica Kecleon", "78AF0A007EC6E99CC5BFBDC6BFC9C8FF08000202BBFFFFFFFFFFFF00DF9400001269999C9C695A9C1277EC880669E39C0669E39C0669E39C3B68E39C063CE39C062FE39C064D7D3C0669E39C0669E39C"],
                 [ "Jessica Seviper", "787B15000FF9AC6DCDBFD0C3CABFCCFFE0450202BBFFFFFFFFFFFF0058A300000C83B96DA7DEB96D77C4B96D2183DE6DFE824B6D6EAAA7627782B96D7782B96D7782B96D77A627CD7782B96D7782B96D"],
                 [ "Kate & Joy Spinda", "80350A009A3082F9CDCAC3C8BEBBFF0000000202BBFFFFFFFFFFFF00A78A00004505B4F98805A2F80E1182ED1A0588F91A0588F91A0588F92E0488F97A5188F91A4388F91A2116591A0588F91A0588F9"],
-                [ "Kate & Joy Slaking", "802E1500BA2FBC35CDC6BBC5C3C8C1FFE0450202BBFFFFFFFFFFFF0035CE00005400A9353AA1A9353A47A9353200B034150010352E0BA3213A01A9353A01A9353A01A9353A2509953A01A9353A01A935"],
+                [ "Kate & Joy Slaking", "802E150079CC0D76CDC6BBC5C3C8C1FFE0450202BBFFFFFFFFFFFF0034B5000097E31876F9421876F9A41876F1E30177D6E3A176EDE81165F9E21876F9E21876F9E21876F9C6B8FEF9E21876F9E21876"],
                 [ "Vanessa Pikachu", "78C20A00855842A9CAC3C5BBBDC2CFFF00000202BBFFFFFFFFFFFF00089F0000E49AC3A9A2EE48A9FDDC48A99F9A20A9E89A1DA9E3955CA6FD9A48A9FD9A48A9FD9A48A9FDBED709FD9A48A9FD9A48A9"],
                 [ "Walter Manectric", "888B0B00AA54B376C7BBC8BFBDCECCC3BDFF0202BBFFFFFFFFFFFF004AC8000022DFB87622DFB87622DFB87622FB27D622DFB87622DFB87670DEB876544EB8762299B87640DF69761EDE96763CCB9062"],
                 [ "Mark Lairon", "88B40700660F1AC2C6BBC3CCC9C8FF0000000202BBFFFFFFFFFFFF00C9CB0000A0BA33C2CABBFAC2E1AF09CDEEBB1DC2EEBB1DC2EEBB1DC291BA1DC2EE1B1DC2EE981DC2EEFABD62EEBB1DC2EEBB1DC2"],
@@ -349,7 +349,7 @@ enemy_data_list = [["Rick Wurmple 1-2", "889308005491506CD1CFCCC7CAC6BFFF0000020
                 [ "Ruben Loudred", "88A61C00E96BA71FC6C9CFBECCBFBEFF0C000202BBFFFFFFFFFFFF00939D000012CCBB1F5D4CBB1F618BBB1F57CCEB1E51CDAC1F6EE5AF0B61CDBB1F61CDBB1F61CDBB1F61E6193FEDFC7D0761CDBB1F"],
                 [ "Nikki Marill", "7875080010A56C61C7BBCCC3C6C6FF0040000202BBFFFFFFFFFFFF00511B00005FD0A96155D0426171C4706E68D0646168D0646168D06461DFD064610EB664616896646168F9C44168D0646168D06461"],
                 [ "Nikki Wailmer", "78B4110035A0E596D1BBC3C6C7BFCCFF00000202BBFFFFFFFFFFFF0084370000B714C2972D15C296421BE0884D14F4964D14F4964D14F4967415F4968F61F4964D52F4964D3D54B64D14F4964D14F496"],
-                [ "Nikki/Reed Spheal", "78251A00D1FE1DE0CDCAC2BFBBC6FF0000000202BBFFFFFFFFFFFF0039160000FCDA07E024B207E0A99D07E084DA25E097DB05E1BDD413EAA9DB07E0A9DB07E0A9DB07E0A9F2A7C0A9DB07E0A9DB07E0"],
+                [ "Nikki/Reed Spheal", "88D919009D7D71D9CDCAC2BFBBC6FF0000000202BBFFFFFFFFFFFF003999000040A568D998CD68D915E268D938A54AD92BA46AD801AB7CD315A468D915A468D915A468D91588C87915A468D915A468D9"],
                 [ "Dean Carvanha 1+3", "88A01A009BF59105BDBBCCD0BBC8C2BBFF000202BBFFFFFFFFFFFF00CB42000013558B0513558B0513558B05137C2A2513558B0513558B0559548B056AFA8B0513768B05AB5579057455AF05195AA311"],
                 [ "Brenda Goldeen", "78DC090058E50E32C1C9C6BEBFBFC8FF40000202BBFFFFFFFFFFFF00D36500002039073220390732203907322010A4122039073220390732563907325B9E0732207F0732103919328F39183234200826"],
                 [ "Allison Wingull 1+2+4", "78E00A00ABF42FA7D1C3C8C1CFC6C6FF40000202BBFFFFFFFFFFFF00C1030000E61525A7DA2925A7D35225A7E41415A7C21413A7CA0006B9D31425A7D31425A7D31425A7D338BC87D31425A7D31425A7"],
@@ -565,7 +565,7 @@ valid_combinations = []
 #print(otids_list[0])
 
  
-for i in range(5000, 10000):
+for i in range(5782, 5783):
     player_key = pid ^ (literal_eval(f"{int(otids_list[i][2]):#0{6}x}" + f"{int(otids_list[i][1]):#0{6}x}"[2::]))
     #print("Player frame " + str(i-1) + " Player Key: " + str(player_key))
     for j in range(600, 10000):
@@ -904,6 +904,7 @@ for i in range(5000, 10000):
                 + (player_key ^ enemy_key ^ data11 % 65536) + math.trunc((player_key ^ enemy_key ^ data11)/65536) + (player_key ^ enemy_key ^ data12 % 65536) + math.trunc((player_key ^ enemy_key ^ data12)/65536))%65536
                 #print("Enemy frame " + str(j) + " Enemy Key: " + str(enemy_key) + " New Checksum: " + str(new_checksum))
                 if new_checksum == original_checksum:
+                    print(original_checksum)
                     #valid_combinations.append([i-1, j-1])
                     #if ("0x" + f"{(int(format((player_key ^ enemy_key ^ data4), '#034b')[2:], 2)):#0{10}x}"[-4:] == '0x6d83' or f"{(int(format((player_key ^ enemy_key ^ data4), '#034b')[2:], 2)):#0{10}x}"[0:6] == '0x6d83' or "0x" + f"{(int(format((player_key ^ enemy_key ^ data5), '#034b')[2:], 2)):#0{10}x}"[-4:] == '0x6d83' or f"{(int(format((player_key ^ enemy_key ^ data5), '#034b')[2:], 2)):#0{10}x}"[0:6] == '0x6d83'):
                      #   print("ACE move found: " + str(i-1) + " " + str(j-1))
@@ -932,7 +933,7 @@ for i in range(5000, 10000):
                     + " Moves: " + "0x" + f"{(int(format((player_key ^ enemy_key ^ data4), '#034b')[2:], 2)):#0{10}x}"[-4:] + " " + f"{(int(format((player_key ^ enemy_key ^ data4), '#034b')[2:], 2)):#0{10}x}"[0:6]
                         + " 0x" + f"{(int(format((player_key ^ enemy_key ^ data5), '#034b')[2:], 2)):#0{10}x}"[-4:] + " " + f"{(int(format((player_key ^ enemy_key ^ data5), '#034b')[2:], 2)):#0{10}x}"[0:6] + " Pokeball: " + str(k)
                         + (" Egg: " + format(player_key ^ enemy_key ^ data11, '#034b')[3:4]) + " Enemy Mon: " + enemy_mon[0]) 
-                    break
+                    #break
                 #if ((literal_eval(hex(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2))[0:2] + hex(int(format((player_key ^ enemy_key ^ data1), '#034b')[2:], 2))[-4:] )) < 440):
                     #print("VALID MON")
 file.close()
